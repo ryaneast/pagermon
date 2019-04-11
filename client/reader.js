@@ -111,6 +111,16 @@ rl.on('line', (line) => {
   // if too much junk data, make sure '-p' option isn't enabled in multimon
   if (address.length > 2 && message) {
     var padAddress = padDigits(address,7);
+    if (trimMessage.startsWith("@@")) {
+      padAddress = padAddress.concat("E");
+      trimMessage = trimMessage.replace(/^(@@)/,"");
+    } else if (trimMessage.startsWith("Hb")) {
+      padAddress = padAddress.concat("N");
+      trimMessage = trimMessage.replace(/^(Hb)/,"");
+    } else if (trimMessage.startsWith("QD")) {
+      padAddress = padAddress.concat("A");
+      trimMessage = trimMessage.replace(/^(QD)/,"");
+    }
     console.log(colors.red(time+': ')+colors.yellow(padAddress+': ')+colors.success(trimMessage));
     // now send the message
     var form = {
