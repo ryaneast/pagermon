@@ -105,6 +105,109 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
       var result = [];
       db.each(sql,function(err,row){
         //outRow = JSON.parse(newrow);
+        if (row.agency == "CFA") {
+          if (row.address.includes("N")) {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "purple",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+          if (row.address.includes("E")) {
+
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "red",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+        }
+        if (row.agency == "SES") {
+          if (row.address.includes("E")) {
+
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "red",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+          if (row.address.includes("N")) {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "orange",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+        }
+        if (row.agency == "AV") {
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "blue",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+
+        if (row.address.includes("A")) {
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "black",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
         if (HideCapcode) {
           if (!req.isAuthenticated()) {
             row = {
@@ -163,6 +266,109 @@ router.get('/messages/:id', isLoggedIn, function(req, res, next) {
       if (err) {
         res.status(500).send(err);
       } else {
+        if (row.agency == "CFA") {
+          if (row.address.includes("N")) {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "purple",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+          if (row.address.includes("E")) {
+
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "red",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+        }
+        if (row.agency == "SES") {
+          if (row.address.includes("E")) {
+
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "red",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+          if (row.address.includes("N")) {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "orange",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+        }
+        if (row.agency == "AV") {
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "blue",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+
+        if (row.address.includes("A")) {
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "black",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
         if (HideCapcode) {
           if (!req.isAuthenticated()) {
             row = {
@@ -265,6 +471,109 @@ router.get('/messageSearch', isLoggedIn, function(req, res, next) {
     if (err) {
       logger.main.error(err);
     } else if (row) {
+      if (row.agency == "CFA") {
+        if (row.address.includes("N")) {
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "purple",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+        if (row.address.includes("E")) {
+
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "red",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+      }
+      if (row.agency == "SES") {
+        if (row.address.includes("E")) {
+
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "red",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+        if (row.address.includes("N")) {
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "orange",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+      }
+      if (row.agency == "AV") {
+        row = {
+          "id": row.id,
+          "address": row.address,
+          "message": row.message,
+          "source": row.source,
+          "timestamp": row.timestamp,
+          "alias_id": row.alias_id,
+          "alias": row.alias,
+          "agency": row.agency,
+          "icon": row.icon,
+          "color": "blue",
+          "ignore": row.ignore,
+          "aliasMatch": row.aliasMatch
+        };
+      }
+
+      if (row.address.includes("A")) {
+        row = {
+          "id": row.id,
+          "address": row.address,
+          "message": row.message,
+          "source": row.source,
+          "timestamp": row.timestamp,
+          "alias_id": row.alias_id,
+          "alias": row.alias,
+          "agency": row.agency,
+          "icon": row.icon,
+          "color": "black",
+          "ignore": row.ignore,
+          "aliasMatch": row.aliasMatch
+        };
+      }
       if (HideCapcode) {
         if (!req.isAuthenticated()) {
           row = {
@@ -550,6 +859,109 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                           res.status(500).send(err);
                         } else {
                           if(row) {
+                            if (row.agency == "CFA") {
+                              if (row.address.includes("N")) {
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "purple",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                              }
+                              if (row.address.includes("E")) {
+
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "red",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                              }
+                            }
+                            if (row.agency == "SES") {
+                              if (row.address.includes("E")) {
+
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "red",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                              }
+                              if (row.address.includes("N")) {
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "orange",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                              }
+                            }
+                            if (row.agency == "AV") {
+                              row = {
+                                "id": row.id,
+                                "address": row.address,
+                                "message": row.message,
+                                "source": row.source,
+                                "timestamp": row.timestamp,
+                                "alias_id": row.alias_id,
+                                "alias": row.alias,
+                                "agency": row.agency,
+                                "icon": row.icon,
+                                "color": "blue",
+                                "ignore": row.ignore,
+                                "aliasMatch": row.aliasMatch
+                              };
+                            }
+
+                            if (row.address.includes("A")) {
+                              row = {
+                                "id": row.id,
+                                "address": row.address,
+                                "message": row.message,
+                                "source": row.source,
+                                "timestamp": row.timestamp,
+                                "alias_id": row.alias_id,
+                                "alias": row.alias,
+                                "agency": row.agency,
+                                "icon": row.icon,
+                                "color": "black",
+                                "ignore": row.ignore,
+                                "aliasMatch": row.aliasMatch
+                              };
+                            }
                             // send data to pluginHandler after processing
                             row.pluginData = data.pluginData;
                             if (row.pluginconf) {
