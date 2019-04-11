@@ -211,6 +211,7 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
         if (row.EAS_type === 0) {
           row = {
             "id": row.id,
+            "address": row.address,
             "message": row.message,
             "source": row.source,
             "timestamp": row.timestamp,
@@ -226,6 +227,7 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
         if (row.EAS_type === 1) {
           row = {
             "id": row.id,
+            "address": row.address,
             "message": row.message,
             "source": row.source,
             "timestamp": row.timestamp,
@@ -241,6 +243,7 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
         if (row.EAS_type === 2) {
           row = {
             "id": row.id,
+            "address": row.address,
             "message": row.message,
             "source": row.source,
             "timestamp": row.timestamp,
@@ -256,6 +259,7 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
         if (row.EAS_type === 3) {
           row = {
             "id": row.id,
+            "address": row.address,
             "message": row.message,
             "source": row.source,
             "timestamp": row.timestamp,
@@ -432,6 +436,7 @@ router.get('/messages/:id', isLoggedIn, function(req, res, next) {
         if (row.EAS_type === 0) {
           row = {
             "id": row.id,
+            "address": row.address,
             "message": row.message,
             "source": row.source,
             "timestamp": row.timestamp,
@@ -447,6 +452,7 @@ router.get('/messages/:id', isLoggedIn, function(req, res, next) {
         if (row.EAS_type === 1) {
           row = {
             "id": row.id,
+            "address": row.address,
             "message": row.message,
             "source": row.source,
             "timestamp": row.timestamp,
@@ -462,6 +468,7 @@ router.get('/messages/:id', isLoggedIn, function(req, res, next) {
         if (row.EAS_type === 2) {
           row = {
             "id": row.id,
+            "address": row.address,
             "message": row.message,
             "source": row.source,
             "timestamp": row.timestamp,
@@ -477,6 +484,7 @@ router.get('/messages/:id', isLoggedIn, function(req, res, next) {
         if (row.EAS_type === 3) {
           row = {
             "id": row.id,
+            "address": row.address,
             "message": row.message,
             "source": row.source,
             "timestamp": row.timestamp,
@@ -697,6 +705,7 @@ router.get('/messageSearch', isLoggedIn, function(req, res, next) {
       if (row.EAS_type === 0) {
         row = {
           "id": row.id,
+          "address": row.address,
           "message": row.message,
           "source": row.source,
           "timestamp": row.timestamp,
@@ -712,6 +721,7 @@ router.get('/messageSearch', isLoggedIn, function(req, res, next) {
       if (row.EAS_type === 1) {
         row = {
           "id": row.id,
+          "address": row.address,
           "message": row.message,
           "source": row.source,
           "timestamp": row.timestamp,
@@ -727,6 +737,7 @@ router.get('/messageSearch', isLoggedIn, function(req, res, next) {
       if (row.EAS_type === 2) {
         row = {
           "id": row.id,
+          "address": row.address,
           "message": row.message,
           "source": row.source,
           "timestamp": row.timestamp,
@@ -742,6 +753,7 @@ router.get('/messageSearch', isLoggedIn, function(req, res, next) {
       if (row.EAS_type === 3) {
         row = {
           "id": row.id,
+          "address": row.address,
           "message": row.message,
           "source": row.source,
           "timestamp": row.timestamp,
@@ -1144,9 +1156,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                 "aliasMatch": row.aliasMatch
                               };
                             }**/
-                            if (EAStype === 0) {
+                            if (row.EAS_type === 0) {
                               row = {
                                 "id": row.id,
+                                "address": row.address,
                                 "message": row.message,
                                 "source": row.source,
                                 "timestamp": row.timestamp,
@@ -1159,9 +1172,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                 "aliasMatch": row.aliasMatch
                               };
                             }
-                            if (EAStype === 1) {
+                            if (row.EAS_type === 1) {
                               row = {
                                 "id": row.id,
+                                "address": row.address,
                                 "message": row.message,
                                 "source": row.source,
                                 "timestamp": row.timestamp,
@@ -1174,9 +1188,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                 "aliasMatch": row.aliasMatch
                               };
                             }
-                            if (EAStype === 2) {
+                            if (row.EAS_type === 2) {
                               row = {
                                 "id": row.id,
+                                "address": row.address,
                                 "message": row.message,
                                 "source": row.source,
                                 "timestamp": row.timestamp,
@@ -1189,9 +1204,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                 "aliasMatch": row.aliasMatch
                               };
                             }
-                            if (EAStype === 3) {
+                            if (row.EAS_type === 3) {
                               row = {
                                 "id": row.id,
+                                "address": row.address,
                                 "message": row.message,
                                 "source": row.source,
                                 "timestamp": row.timestamp,
