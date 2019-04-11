@@ -24,6 +24,7 @@ function init(release) {
                 sql += "source TEXT NOT NULL, ";
                 sql += "timestamp INTEGER, ";
                 sql += "alias_id INTEGER, ";
+                sql += "EAS_type INTEGER";
                 sql += "PRIMARY KEY(`id`), FOREIGN KEY(`alias_id`) REFERENCES capcodes(id) ); ";
                 // create indexes and the fts table
                 sql += "CREATE INDEX IF NOT EXISTS `msg_index` ON `messages` (`address`,`id` DESC); ";

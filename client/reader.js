@@ -61,6 +61,7 @@ rl.on('line', (line) => {
   var address;
   var message;
   var trimMessage;
+  var EAStype;
   // TODO: pad address with zeros for better address matching
 //  if (line.indexOf('POCSAG512: Address:') > -1) {	
   if (/^POCSAG(\d+): Address: /.test(line) ) {
@@ -112,14 +113,19 @@ rl.on('line', (line) => {
   if (address.length > 2 && message) {
     var padAddress = padDigits(address,7);
     if (trimMessage.startsWith("@@")) {
-      padAddress = padAddress.concat("E");
+      //padAddress = padAddress.concat("E");
+      EAStype = 0;
       trimMessage = trimMessage.replace(/^(@@)/,"");
     } else if (trimMessage.startsWith("Hb")) {
-      padAddress = padAddress.concat("N");
+      //padAddress = padAddress.concat("N");
+      EAStype = 1;
       trimMessage = trimMessage.replace(/^(Hb)/,"");
     } else if (trimMessage.startsWith("QD")) {
-      padAddress = padAddress.concat("A");
+      //padAddress = padAddress.concat("A");
+      EAStype = 2;
       trimMessage = trimMessage.replace(/^(QD)/,"");
+    } else {
+      EAStype = 3;
     }
     console.log(colors.red(time+': ')+colors.yellow(padAddress+': ')+colors.success(trimMessage));
     // now send the message
@@ -127,7 +133,8 @@ rl.on('line', (line) => {
       address: padAddress,
       message: trimMessage,
       datetime: datetime,
-      source: identifier
+      source: identifier,
+      EAS_type: EAStype,
     };
     sendPage(form, 0);
   } else {

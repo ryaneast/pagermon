@@ -105,7 +105,7 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
       var result = [];
       db.each(sql,function(err,row){
         //outRow = JSON.parse(newrow);
-        if (row.agency == "CFA") {
+        /**if (row.agency == "CFA") {
           if (row.address.includes("N")) {
             row = {
               "id": row.id,
@@ -204,6 +204,66 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
             "agency": row.agency,
             "icon": row.icon,
             "color": "black",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }**/
+        if (row.EAS_type === 0) {
+          row = {
+            "id": row.id,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "red",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+        if (row.EAS_type === 1) {
+          row = {
+            "id": row.id,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "purple",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+        if (row.EAS_type === 2) {
+          row = {
+            "id": row.id,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "black",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+        if (row.EAS_type === 3) {
+          row = {
+            "id": row.id,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "grey",
             "ignore": row.ignore,
             "aliasMatch": row.aliasMatch
           };
@@ -266,7 +326,7 @@ router.get('/messages/:id', isLoggedIn, function(req, res, next) {
       if (err) {
         res.status(500).send(err);
       } else {
-        if (row.agency == "CFA") {
+        /**if (row.agency == "CFA") {
           if (row.address.includes("N")) {
             row = {
               "id": row.id,
@@ -365,6 +425,66 @@ router.get('/messages/:id', isLoggedIn, function(req, res, next) {
             "agency": row.agency,
             "icon": row.icon,
             "color": "black",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }**/
+        if (row.EAS_type === 0) {
+          row = {
+            "id": row.id,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "red",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+        if (row.EAS_type === 1) {
+          row = {
+            "id": row.id,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "purple",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+        if (row.EAS_type === 2) {
+          row = {
+            "id": row.id,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "black",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        }
+        if (row.EAS_type === 3) {
+          row = {
+            "id": row.id,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "grey",
             "ignore": row.ignore,
             "aliasMatch": row.aliasMatch
           };
@@ -471,7 +591,7 @@ router.get('/messageSearch', isLoggedIn, function(req, res, next) {
     if (err) {
       logger.main.error(err);
     } else if (row) {
-      if (row.agency == "CFA") {
+      /**if (row.agency == "CFA") {
         if (row.address.includes("N")) {
           row = {
             "id": row.id,
@@ -570,6 +690,66 @@ router.get('/messageSearch', isLoggedIn, function(req, res, next) {
           "agency": row.agency,
           "icon": row.icon,
           "color": "black",
+          "ignore": row.ignore,
+          "aliasMatch": row.aliasMatch
+        };
+      }**/
+      if (row.EAS_type === 0) {
+        row = {
+          "id": row.id,
+          "message": row.message,
+          "source": row.source,
+          "timestamp": row.timestamp,
+          "alias_id": row.alias_id,
+          "alias": row.alias,
+          "agency": row.agency,
+          "icon": row.icon,
+          "color": "red",
+          "ignore": row.ignore,
+          "aliasMatch": row.aliasMatch
+        };
+      }
+      if (row.EAS_type === 1) {
+        row = {
+          "id": row.id,
+          "message": row.message,
+          "source": row.source,
+          "timestamp": row.timestamp,
+          "alias_id": row.alias_id,
+          "alias": row.alias,
+          "agency": row.agency,
+          "icon": row.icon,
+          "color": "purple",
+          "ignore": row.ignore,
+          "aliasMatch": row.aliasMatch
+        };
+      }
+      if (row.EAS_type === 2) {
+        row = {
+          "id": row.id,
+          "message": row.message,
+          "source": row.source,
+          "timestamp": row.timestamp,
+          "alias_id": row.alias_id,
+          "alias": row.alias,
+          "agency": row.agency,
+          "icon": row.icon,
+          "color": "black",
+          "ignore": row.ignore,
+          "aliasMatch": row.aliasMatch
+        };
+      }
+      if (row.EAS_type === 3) {
+        row = {
+          "id": row.id,
+          "message": row.message,
+          "source": row.source,
+          "timestamp": row.timestamp,
+          "alias_id": row.alias_id,
+          "alias": row.alias,
+          "agency": row.agency,
+          "icon": row.icon,
+          "color": "grey",
           "ignore": row.ignore,
           "aliasMatch": row.aliasMatch
         };
@@ -788,6 +968,7 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
         var datetime = data.datetime || 1;
         var timeDiff = datetime - dupeTime;
         var source = data.source || 'UNK';
+        var EAStype = data.EAS_type;
         
         var dupeCheck = 'SELECT * FROM messages WHERE ';
         if (dupeLimit != 0 || dupeTime != 0) {
@@ -835,12 +1016,13 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                 }
 
                 if (insert == true) {
-                  db.run("INSERT INTO messages (address, message, timestamp, source, alias_id) VALUES ($mesAddress, $mesBody, $mesDT, $mesSource, $aliasId);", {
+                  db.run("INSERT INTO messages (address, message, timestamp, source, alias_id, EAS_type) VALUES ($mesAddress, $mesBody, $mesDT, $mesSource, $aliasId, $EAStype);", {
                     $mesAddress: address,
                     $mesBody: message,
                     $mesDT: datetime,
                     $mesSource: source,
-                    $aliasId: alias_id
+                    $aliasId: alias_id,
+                    $EAStype: EAStype
                   }, function(err){
                     if (err) {
                       res.status(500).send(err);
@@ -859,7 +1041,7 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                           res.status(500).send(err);
                         } else {
                           if(row) {
-                            if (row.agency == "CFA") {
+                            /**if (row.agency == "CFA") {
                               if (row.address.includes("N")) {
                                 row = {
                                   "id": row.id,
@@ -958,6 +1140,66 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                 "agency": row.agency,
                                 "icon": row.icon,
                                 "color": "black",
+                                "ignore": row.ignore,
+                                "aliasMatch": row.aliasMatch
+                              };
+                            }**/
+                            if (EAStype === 0) {
+                              row = {
+                                "id": row.id,
+                                "message": row.message,
+                                "source": row.source,
+                                "timestamp": row.timestamp,
+                                "alias_id": row.alias_id,
+                                "alias": row.alias,
+                                "agency": row.agency,
+                                "icon": row.icon,
+                                "color": "red",
+                                "ignore": row.ignore,
+                                "aliasMatch": row.aliasMatch
+                              };
+                            }
+                            if (EAStype === 1) {
+                              row = {
+                                "id": row.id,
+                                "message": row.message,
+                                "source": row.source,
+                                "timestamp": row.timestamp,
+                                "alias_id": row.alias_id,
+                                "alias": row.alias,
+                                "agency": row.agency,
+                                "icon": row.icon,
+                                "color": "purple",
+                                "ignore": row.ignore,
+                                "aliasMatch": row.aliasMatch
+                              };
+                            }
+                            if (EAStype === 2) {
+                              row = {
+                                "id": row.id,
+                                "message": row.message,
+                                "source": row.source,
+                                "timestamp": row.timestamp,
+                                "alias_id": row.alias_id,
+                                "alias": row.alias,
+                                "agency": row.agency,
+                                "icon": row.icon,
+                                "color": "black",
+                                "ignore": row.ignore,
+                                "aliasMatch": row.aliasMatch
+                              };
+                            }
+                            if (EAStype === 3) {
+                              row = {
+                                "id": row.id,
+                                "message": row.message,
+                                "source": row.source,
+                                "timestamp": row.timestamp,
+                                "alias_id": row.alias_id,
+                                "alias": row.alias,
+                                "agency": row.agency,
+                                "icon": row.icon,
+                                "color": "grey",
                                 "ignore": row.ignore,
                                 "aliasMatch": row.aliasMatch
                               };
