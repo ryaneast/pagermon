@@ -208,72 +208,8 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
             "aliasMatch": row.aliasMatch
           };
         }**/
-        if (row.agency == "AV") {
-          if (row.EAS_type === 0) {
-            row = {
-              "id": row.id,
-              "address": row.address,
-              "message": row.message,
-              "source": row.source,
-              "timestamp": row.timestamp,
-              "alias_id": row.alias_id,
-              "alias": row.alias,
-              "agency": row.agency,
-              "icon": row.icon,
-              "color": "blue",
-              "ignore": row.ignore,
-              "aliasMatch": row.aliasMatch
-            };
-          }
-          if (row.EAS_type === 1) {
-            row = {
-              "id": row.id,
-              "address": row.address,
-              "message": row.message,
-              "source": row.source,
-              "timestamp": row.timestamp,
-              "alias_id": row.alias_id,
-              "alias": row.alias,
-              "agency": row.agency,
-              "icon": row.icon,
-              "color": "purple",
-              "ignore": row.ignore,
-              "aliasMatch": row.aliasMatch
-            };
-          }
-            if (row.EAS_type === 2) {
-              row = {
-                "id": row.id,
-                "address": row.address,
-                "message": row.message,
-                "source": row.source,
-                "timestamp": row.timestamp,
-                "alias_id": row.alias_id,
-                "alias": row.alias,
-                "agency": row.agency,
-                "icon": row.icon,
-                "color": "black",
-                "ignore": row.ignore,
-                "aliasMatch": row.aliasMatch
-              };
-            }
-          if (row.EAS_type === 3) {
-            row = {
-              "id": row.id,
-              "address": row.address,
-              "message": row.message,
-              "source": row.source,
-              "timestamp": row.timestamp,
-              "alias_id": row.alias_id,
-              "alias": row.alias,
-              "agency": row.agency,
-              "icon": row.icon,
-              "color": "blue",
-              "ignore": row.ignore,
-              "aliasMatch": row.aliasMatch
-            };
-          }
-        } else {
+        if (row.agency == "CFA") {
+          // Emergency
           if (row.EAS_type === 0) {
             row = {
               "id": row.id,
@@ -290,7 +226,8 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
               "aliasMatch": row.aliasMatch
             };
           }
-          if (row.EAS_type === 1) {
+          // Non emergency
+          else if (row.EAS_type === 1) {
             row = {
               "id": row.id,
               "address": row.address,
@@ -301,28 +238,28 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
               "alias": row.alias,
               "agency": row.agency,
               "icon": row.icon,
-              "color": "purple",
+              "color": "#ce0010",
               "ignore": row.ignore,
               "aliasMatch": row.aliasMatch
             };
           }
-            if (row.EAS_type === 2) {
-              row = {
-                "id": row.id,
-                "address": row.address,
-                "message": row.message,
-                "source": row.source,
-                "timestamp": row.timestamp,
-                "alias_id": row.alias_id,
-                "alias": row.alias,
-                "agency": row.agency,
-                "icon": row.icon,
-                "color": "black",
-                "ignore": row.ignore,
-                "aliasMatch": row.aliasMatch
-              };
-            }
-          if (row.EAS_type === 3) {
+          // Admin
+          else if (row.EAS_type === 2) {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "black",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          } else {
             row = {
               "id": row.id,
               "address": row.address,
@@ -338,6 +275,101 @@ router.get('/messages', isLoggedIn, function(req, res, next) {
               "aliasMatch": row.aliasMatch
             };
           }
+        } else if (row.agency == "AV") {
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "#26397b",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
+        } else if (row.agency == "SES") {
+          // Emergency
+          if (row.EAS_type === 0) {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "#ffa500",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+          // Non emergency
+          else if (row.EAS_type === 1) {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "#ff6600",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          } else if (row.EAS_type === 2) {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "#444444",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          } else {
+            row = {
+              "id": row.id,
+              "address": row.address,
+              "message": row.message,
+              "source": row.source,
+              "timestamp": row.timestamp,
+              "alias_id": row.alias_id,
+              "alias": row.alias,
+              "agency": row.agency,
+              "icon": row.icon,
+              "color": "grey",
+              "ignore": row.ignore,
+              "aliasMatch": row.aliasMatch
+            };
+          }
+        } else {
+          row = {
+            "id": row.id,
+            "address": row.address,
+            "message": row.message,
+            "source": row.source,
+            "timestamp": row.timestamp,
+            "alias_id": row.alias_id,
+            "alias": row.alias,
+            "agency": row.agency,
+            "icon": row.icon,
+            "color": "grey",
+            "ignore": row.ignore,
+            "aliasMatch": row.aliasMatch
+          };
         }
         if (HideCapcode) {
           if (!req.isAuthenticated()) {
@@ -1086,14 +1118,30 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                     alias_id = row.id;
                   }
                 } else {
-
                   if (EAStype == 0) {
+                    if (new RegExp(/(ALERT F[0-9]{9})/).test(message)) {
+                      if (new RegExp(/(S[0-9]{9})/).test(message)) {
+                        db.run("INSERT INTO capcodes (id, address, alias, agency, color, icon, ignore, pluginconf) VALUES (NULL, $mesAddress, $mesAlias, $mesAgency, $mesColor, $mesIcon, $mesIgnore, $mesPluginconf);", {
+                          $mesAddress: address,
+                          $mesAlias: "Unknown",
+                          $mesAgency: "SES",
+                          $mesColor: "#ff6600",
+                          $mesIcon: "tree",
+                          $mesIgnore: 0,
+                          $mesPluginconf: "{}"
+                        }, function (err) {
+                          if (err) {
+                            console.log(err);
+                          }
+                        });
+                      }
+                    }
                     if (new RegExp(/(F[0-9]{9})/).test(message)) {
                       db.run("INSERT INTO capcodes (id, address, alias, agency, color, icon, ignore, pluginconf) VALUES (NULL, $mesAddress, $mesAlias, $mesAgency, $mesColor, $mesIcon, $mesIgnore, $mesPluginconf);", {
                         $mesAddress: address,
                         $mesAlias: "Unknown",
                         $mesAgency: "CFA",
-                        $mesColor: "red",
+                        $mesColor: "#ce0010",
                         $mesIcon: "fire",
                         $mesIgnore: 0,
                         $mesPluginconf: "{}"
@@ -1107,7 +1155,7 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                         $mesAddress: address,
                         $mesAlias: "Unknown",
                         $mesAgency: "AV",
-                        $mesColor: "blue",
+                        $mesColor: "#26397b",
                         $mesIcon: "medkit",
                         $mesIgnore: 0,
                         $mesPluginconf: "{}"
@@ -1125,7 +1173,7 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                         $mesAddress: address,
                         $mesAlias: "Unknown",
                         $mesAgency: "AV",
-                        $mesColor: "blue",
+                        $mesColor: "#26397b",
                         $mesIcon: "medkit",
                         $mesIgnore: 0,
                         $mesPluginconf: "{}"
@@ -1138,12 +1186,12 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                   }
 
                   if (EAStype == 1) {
-                    if (new RegExp(/(S[0-9]{11})/).test(message)) {
+                    if (new RegExp(/(S[0-9]{9})/).test(message)) {
                       db.run("INSERT INTO capcodes (id, address, alias, agency, color, icon, ignore, pluginconf) VALUES (NULL, $mesAddress, $mesAlias, $mesAgency, $mesColor, $mesIcon, $mesIgnore, $mesPluginconf);", {
                         $mesAddress: address,
                         $mesAlias: "Unknown",
                         $mesAgency: "SES",
-                        $mesColor: "orange",
+                        $mesColor: "#ff6600",
                         $mesIcon: "tree",
                         $mesIgnore: 0,
                         $mesPluginconf: "{}"
@@ -1292,72 +1340,8 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                 "aliasMatch": row.aliasMatch
                               };
                             }**/
-                            if (row.agency == "AV") {
-                              if (row.EAS_type === 0) {
-                                row = {
-                                  "id": row.id,
-                                  "address": row.address,
-                                  "message": row.message,
-                                  "source": row.source,
-                                  "timestamp": row.timestamp,
-                                  "alias_id": row.alias_id,
-                                  "alias": row.alias,
-                                  "agency": row.agency,
-                                  "icon": row.icon,
-                                  "color": "blue",
-                                  "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
-                                };
-                              }
-                              if (row.EAS_type === 1) {
-                                row = {
-                                  "id": row.id,
-                                  "address": row.address,
-                                  "message": row.message,
-                                  "source": row.source,
-                                  "timestamp": row.timestamp,
-                                  "alias_id": row.alias_id,
-                                  "alias": row.alias,
-                                  "agency": row.agency,
-                                  "icon": row.icon,
-                                  "color": "purple",
-                                  "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
-                                };
-                              }
-                              if (row.EAS_type === 2) {
-                                row = {
-                                  "id": row.id,
-                                  "address": row.address,
-                                  "message": row.message,
-                                  "source": row.source,
-                                  "timestamp": row.timestamp,
-                                  "alias_id": row.alias_id,
-                                  "alias": row.alias,
-                                  "agency": row.agency,
-                                  "icon": row.icon,
-                                  "color": "black",
-                                  "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
-                                };
-                              }
-                              if (row.EAS_type === 3) {
-                                row = {
-                                  "id": row.id,
-                                  "address": row.address,
-                                  "message": row.message,
-                                  "source": row.source,
-                                  "timestamp": row.timestamp,
-                                  "alias_id": row.alias_id,
-                                  "alias": row.alias,
-                                  "agency": row.agency,
-                                  "icon": row.icon,
-                                  "color": "blue",
-                                  "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
-                                };
-                              }
-                            } else {
+                            if (row.agency == "CFA") {
+                              // Emergency
                               if (row.EAS_type === 0) {
                                 row = {
                                   "id": row.id,
@@ -1374,7 +1358,8 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "aliasMatch": row.aliasMatch
                                 };
                               }
-                              if (row.EAS_type === 1) {
+                              // Non emergency
+                              else if (row.EAS_type === 1) {
                                 row = {
                                   "id": row.id,
                                   "address": row.address,
@@ -1385,12 +1370,13 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "alias": row.alias,
                                   "agency": row.agency,
                                   "icon": row.icon,
-                                  "color": "purple",
+                                  "color": "#ce0010",
                                   "ignore": row.ignore,
                                   "aliasMatch": row.aliasMatch
                                 };
                               }
-                              if (row.EAS_type === 2) {
+                              // Admin
+                              else if (row.EAS_type === 2) {
                                 row = {
                                   "id": row.id,
                                   "address": row.address,
@@ -1405,8 +1391,7 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "ignore": row.ignore,
                                   "aliasMatch": row.aliasMatch
                                 };
-                              }
-                              if (row.EAS_type === 3) {
+                              } else {
                                 row = {
                                   "id": row.id,
                                   "address": row.address,
@@ -1422,6 +1407,101 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "aliasMatch": row.aliasMatch
                                 };
                               }
+                            } else if (row.agency == "AV") {
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "#26397b",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                            } else if (row.agency == "SES") {
+                              // Emergency
+                              if (row.EAS_type === 0) {
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "#ffa500",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                              }
+                              // Non emergency
+                              else if (row.EAS_type === 1) {
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "#ff6600",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                              } else if (row.EAS_type === 2) {
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "#444444",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                              } else {
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "grey",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
+                              }
+                            } else {
+                                row = {
+                                  "id": row.id,
+                                  "address": row.address,
+                                  "message": row.message,
+                                  "source": row.source,
+                                  "timestamp": row.timestamp,
+                                  "alias_id": row.alias_id,
+                                  "alias": row.alias,
+                                  "agency": row.agency,
+                                  "icon": row.icon,
+                                  "color": "grey",
+                                  "ignore": row.ignore,
+                                  "aliasMatch": row.aliasMatch
+                                };
                             }
                             // send data to pluginHandler after processing
                             row.pluginData = data.pluginData;
