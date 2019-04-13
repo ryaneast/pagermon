@@ -28,7 +28,7 @@ var nconf = require('nconf');
 
 var hostname = nconf.get('hostname');
 var apikey = nconf.get('apikey');
-var identifier = nconf.get('identifier');
+var identifier = process.argv[2];
 var sendFunctionCode = nconf.get('sendFunctionCode') || false;
 
 var uri = hostname+"/api/messages";
