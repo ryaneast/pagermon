@@ -1355,7 +1355,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "red",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                               }
                               // Non emergency
@@ -1372,7 +1375,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "#ce0010",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                               }
                               // Admin
@@ -1389,7 +1395,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "black",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                               } else {
                                 row = {
@@ -1404,7 +1413,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "grey",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                               }
                             } else if (row.agency == "AV") {
@@ -1420,7 +1432,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "#26397b",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                             } else if (row.agency == "SES") {
                               // Emergency
@@ -1437,7 +1452,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "#ffa500",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                               }
                               // Non emergency
@@ -1454,7 +1472,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "#ff6600",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                               } else if (row.EAS_type === 2) {
                                 row = {
@@ -1469,7 +1490,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "#444444",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                               } else {
                                 row = {
@@ -1484,7 +1508,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "grey",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                               }
                             } else {
@@ -1500,7 +1527,10 @@ router.post('/messages', isLoggedIn, function(req, res, next) {
                                   "icon": row.icon,
                                   "color": "grey",
                                   "ignore": row.ignore,
-                                  "aliasMatch": row.aliasMatch
+                                  "aliasMatch": row.aliasMatch,
+                                  "pluginconf": row.pluginconf,
+                                  "pluginData": row.pluginData,
+                                  "EAS_type": row.EAS_type
                                 };
                             }
                             // send data to pluginHandler after processing
